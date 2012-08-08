@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Main-Class: com.derbysoft.dswitch.router.main.RouterStart
+Built-By: zhupan
+Build-Jdk: 1.6.0_29
+
