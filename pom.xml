@@ -71,7 +71,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <scalaVersion>${scala.version}</scalaVersion>
+                    <scalaVersion>2.9.1</scalaVersion>
                 </configuration>
             </plugin>
             <plugin>
@@ -87,26 +87,6 @@
                         </manifest>
                     </archive>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>server</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>-${project.version}</classifier>
-                            <jarName>server</jarName>
-                            <archive>
-                                <manifest>
-                                    <addClasspath>true</addClasspath>
-                                    <classpathPrefix>lib/</classpathPrefix>
-                                    <mainClass>com.derbysoft.dswitch.router.main.ServerStart</mainClass>
-                                </manifest>
-                            </archive>
-                        </configuration>
-                    </execution>
-                </executions>
-
             </plugin>
 
             <plugin>
@@ -146,33 +126,27 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.derbysoft.dswitch</groupId>
-            <artifactId>router-protocol</artifactId>
-            <version>${router.protocol.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
+            <version>1.1.22</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.derbysoft.redis</groupId>
             <artifactId>derbysoft-redis-sharding</artifactId>
-            <version>${derbysoft.redis.sharding.version}</version>
+            <version>1.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>finagle-core_2.9.1</artifactId>
-            <version>${finagle.version}</version>
+            <version>4.0.2</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>finagle-http_2.9.1</artifactId>
-            <version>${finagle.version}</version>
+            <version>4.0.2</version>
             <scope>compile</scope>
             <exclusions>
                 <exclusion>

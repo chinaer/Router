@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit._
 import concurrent.forkjoin.{LinkedTransferQueue, TransferQueue}
 import com.derbysoft.dswitch.router.core._
 import com.twitter.finagle.TimeoutException
-import com.derbysoft.dswitch.dto.common.KeyValue
 import com.derbysoft.dswitch.router.util.StopWatch
 
 class SyncClient(hosts: String, connectionSize: Int, timeout: Int) {
@@ -30,7 +29,7 @@ class SyncClient(hosts: String, connectionSize: Int, timeout: Int) {
     if (response == null) {
       response = NullResponseError(message, timeout)
     }
-    response.addElapsedTime(new KeyValue(message.source + "-DS", ThreadStopWatch.stopAndGetTime.toString))
+    println(ThreadStopWatch.stopAndGetTime)
     return response
   }
 

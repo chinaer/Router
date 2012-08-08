@@ -16,7 +16,6 @@ class ReservationToRedisSender(rule: Rule) {
 
   def response(response: ResponseMessage) {
     val message = response.message
-    redis.hset(message.taskId, Reservation.elapsedTimes, ObjectToJson(response.elapsedTimes))
     if (response.status.hasError) {
       redis.hset(message.taskId, Reservation.error, response.status.toString)
     } else {

@@ -1,6 +1,5 @@
 package com.derbysoft.dswitch.router.core
 
-import com.derbysoft.dswitch.dto.common.KeyValue
 import com.derbysoft.dswitch.router.util.RouterUrl
 import scala._
 
@@ -52,12 +51,7 @@ class MessageBody(val uri: String, val taskId: String, val source: String, val d
 
 case class RequestMessage(message: MessageBody) extends Message
 
-case class ResponseMessage(val message: MessageBody, val status: ResponseStatus, var elapsedTimes: java.util.List[KeyValue]) extends Message {
-  def addElapsedTime(time: KeyValue) {
-    if (elapsedTimes == null) {
-      elapsedTimes = new java.util.ArrayList[KeyValue]()
-    }
-    elapsedTimes.add(time)
-  }
+case class ResponseMessage(val message: MessageBody, val status: ResponseStatus) extends Message {
+
 }
 

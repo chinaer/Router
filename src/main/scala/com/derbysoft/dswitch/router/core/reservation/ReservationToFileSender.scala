@@ -4,7 +4,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import com.derbysoft.dswitch.router.core.{ResponseMessage, RequestMessage}
-import com.derbysoft.dswitch.router.util.{TaskID, RichFile, ObjectToJson}
+import com.derbysoft.dswitch.router.util.{RichFile, ObjectToJson}
 
 object ReservationToFileSender {
 
@@ -26,7 +26,6 @@ object ReservationToFileSender {
 
   def response(response: ResponseMessage) = {
     val message = response.message
-    ReservationToFileSender(getOtherMessage(response), message.taskId + separator + Reservation.elapsedTimes)
     if (response.status.hasError) {
       ReservationToFileSender(response.status.toString, response.message.taskId + separator + Reservation.error)
     } else {
@@ -34,8 +33,5 @@ object ReservationToFileSender {
     }
   }
 
-  def getOtherMessage(response: ResponseMessage): String = {
-    response.message.source + TaskID.SEPARATOR + response.message.destination + TaskID.SEPARATOR + ObjectToJson(response.elapsedTimes)
-  }
 }
 

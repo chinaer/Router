@@ -8,6 +8,4 @@ object Reservation {
 
   val error = "error"
 
-  val elapsedTimes = "elapsedTimes"
-
 }
